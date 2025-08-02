@@ -8,34 +8,34 @@
 			<div class="card success-color">
 				<div class="card-content white-text">
 					% if ($success eq 'name') {
-						<span class="card-title">Name geändert</span>
+						<span class="card-title"><%= L('account.changed-name') %></span>
 					% }
 					% elsif ($success eq 'mail') {
-						<span class="card-title">Mail-Adresse geändert</span>
+						<span class="card-title"><%= L('account.changed-mail') %></span>
 					% }
 					% elsif ($success eq 'password') {
-						<span class="card-title">Passwort geändert</span>
+						<span class="card-title"><%= L('account.changed-password') %></span>
 					% }
 					% elsif ($success eq 'language') {
-						<span class="card-title">Sprache geändert</span>
+						<span class="card-title"><%= L('account.changed-language') %></span>
 					% }
 					% elsif ($success eq 'privacy') {
-						<span class="card-title">Einstellungen zu öffentlichen Account-Daten geändert</span>
+						<span class="card-title"><%= L('account.changed-privacy') %></span>
 					% }
 					% elsif ($success eq 'social') {
-						<span class="card-title">Einstellungen zur Interaktionen mit anderen Accounts geändert</span>
+						<span class="card-title"><%= L('account.changed-social') %></span>
 					% }
 					% elsif ($success eq 'traewelling') {
-						<span class="card-title">Träwelling-Verknüpfung aktualisiert</span>
+						<span class="card-title"><%= L('account.changed-traewelling') %></span>
 					% }
 					% elsif ($success eq 'use_history') {
-						<span class="card-title">Einstellungen zu vorgeschlagenen Verbindungen geändert</span>
+						<span class="card-title"><%= L('account.changed-history') %></span>
 					% }
 					% elsif ($success eq 'webhook') {
-						<span class="card-title">Web Hook aktualisiert</span>
+						<span class="card-title"><%= L('account.changed-webhook') %></span>
 					% }
 					% elsif ($success eq 'clear_notifications') {
-						<span class="card-title">Benachrichtigungen gelesen</span>
+						<span class="card-title"><%= L('account.cleared-notifications') %></span>
 					% }
 				</div>
 			</div>
@@ -109,20 +109,20 @@
 				</td>
 			</tr>
 			<tr>
-				<th scope="row">Web Hook</th>
+				<th scope="row"><%= L('account.webhook') %></th>
 				<td>
 					<a href="/account/hooks"><i class="material-icons">edit</i></a>
 					% if (not $hook->{enabled}) {
-						<span style="color: #999999;">Nicht eingerichtet</span>
+						<span style="color: #999999;"><%= L('account.webhook.disabled') %></span>
 					% }
 					% elsif ($hook->{latest_run}->epoch == 0) {
-						Aktiv, noch nicht ausgeführt
+						<%= L('account.webhook.active-pending') %>
 					% }
 					% elsif ($hook->{errored}) {
-						Aktiv, fehlerhaft <i class="material-icons" aria-hidden="true">error</i>
+						<%= L('account.webhook.active-error') %> <i class="material-icons" aria-hidden="true">error</i>
 					% }
 					% else {
-						Aktiv
+						<%= L('account.webhook.active') %>
 					% }
 				</td>
 			</tr>
@@ -130,7 +130,7 @@
 				<tr>
 					<th scope="row">Träwelling</th>
 					<td>
-						Wird wegen Inkompatibilität zwischen bahn.de und transitous derzeit nicht unterstützt
+						<%= L('account.traewelling.unsupported') %>
 					<!--
 						<a href="/account/traewelling"><i class="material-icons">edit</i></a>
 						% if (not ($traewelling->{token})) {
@@ -159,8 +159,8 @@
 				</tr>
 			% }
 			<tr>
-				<th scope="row">Registriert am</th>
-				<td><%= $acc->{registered_at}->strftime('%d.%m.%Y %H:%M') %></td>
+				<th scope="row"><%= L('account.registration-date') %></th>
+				<td><%= $acc->{registered_at}->strftime(L('strftime.datetime')) %></td>
 			</tr>
 		</table>
 	</div>

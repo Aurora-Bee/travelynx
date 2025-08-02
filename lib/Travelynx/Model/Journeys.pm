@@ -13,7 +13,7 @@ use DateTime;
 use DateTime::Format::Strptime;
 use GIS::Distance;
 use JSON;
-use List::MoreUtils qw(after_incl before_incl);
+use List::MoreUtils qw(after_incl before_incl first_index last_index);
 
 my %visibility_itoa = (
 	100 => 'public',
@@ -704,7 +704,7 @@ sub get {
 			for my $stop ( @{ $ref->{route} } ) {
 				for my $k (qw(rt_arr rt_dep sched_arr sched_dep)) {
 					if ( $stop->[2]{$k} ) {
-						$stop->[2]{$k} = epoch_to_dt( $stop->[2]{$k} );
+						$stop->[2]{"${k}_dt"} = epoch_to_dt( $stop->[2]{$k} );
 					}
 				}
 			}
@@ -1190,9 +1190,11 @@ sub get_travel_distance {
 	my $from         = $journey->{from_name};
 	my $from_eva     = $journey->{from_eva};
 	my $from_latlon  = $journey->{from_latlon};
+	my $from_ts      = $journey->{sched_dep_ts} // $journey->{rt_dep_ts};
 	my $to           = $journey->{to_name};
 	my $to_eva       = $journey->{to_eva};
 	my $to_latlon    = $journey->{to_latlon};
+	my $to_ts        = $journey->{sched_arr_ts} // $journey->{rt_arr_ts};
 	my $route_ref    = $journey->{route};
 	my $polyline_ref = $journey->{polyline};
 
@@ -1246,31 +1248,82 @@ sub get_travel_distance {
 	my $geo                   = GIS::Distance->new();
 	my $distance_beeline
 	  = $geo->distance_metal( @{$from_latlon}, @{$to_latlon} );
-	my @route
-	  = after_incl { ( $_->[1] and $_->[1] == $from_eva ) or $_->[0] eq $from }
+
+	# A trip may pass the same stop multiple times.
+	# Thus, two criteria must be met to select the start/end of the actual route:
+	# * stop name or ID matches, and
+	# * one of:
+	#   - arrival/departure time at the stop matches, or
+	#   - the stop does not have arrival/departure time
+	# In the latter case, we still face the risk of selecting the wrong
+	# start/end stop. However, we have no way of finding the right one. As the
+	# majority of trips do not pass the same stop multiple times, it's better
+	# to risk having a few inaccurate distances than not calculating the
+	# distance for any journey that lacks sched_dep/rt_dep or
+	# sched_from/rt_from.
+
+	my $route_start = first_index {
+		(
+			( $_->[1] and $_->[1] == $from_eva or $_->[0] eq $from )
+			  and ( not( defined $_->[2]{sched_dep} or defined $_->[2]{rt_dep} )
+				or ( $_->[2]{sched_dep} // $_->[2]{rt_dep} ) == $from_ts )
+		)
+	}
 	@{$route_ref};
-	@route
-	  = before_incl { ( $_->[1] and $_->[1] == $to_eva ) or $_->[0] eq $to }
-	@route;
 
-	if (
-		@route < 2
-		or ( $route[-1][0] ne $to
-			and ( not $route[-1][1] or $route[-1][1] != $to_eva ) )
-	  )
-	{
+	# Here, we need to use last_index. In case of ring lines, the first index
+	# will not have sched_arr/rt_arr set, but we should not select it as route
+	# end...
+	my $route_end = last_index {
+		(
+			( $_->[1] and $_->[1] == $to_eva or $_->[0] eq $to )
+			  and ( not( defined $_->[2]{sched_arr} or defined $_->[2]{rt_arr} )
+				or ( $_->[2]{sched_arr} // $_->[2]{rt_arr} ) == $to_ts )
+		)
+	}
+	@{$route_ref};
 
-		# I AM ERROR
+	if ( not defined $route_start and defined $route_end ) {
 		return ( 0, 0, $distance_beeline );
 	}
 
-	my @polyline = after_incl { $_->[2] and $_->[2] == $from_eva }
-	@{ $polyline_ref // [] };
-	@polyline
-	  = before_incl { $_->[2] and $_->[2] == $to_eva } @polyline;
+	my %seen;
+	for my $stop ( @{$route_ref} ) {
+		$seen{ $stop->[1] } //= 1;
+		$stop->[2]{n} = $seen{ $stop->[1] };
+		$seen{ $stop->[1] } += 1;
+	}
 
-	# ensure that before_incl matched -- otherwise, @polyline is too long
-	if ( @polyline and $polyline[-1][2] == $to_eva ) {
+	# Assumption: polyline entries are always [lat, lon] or [lat, lon, stop ID]
+	%seen = ();
+	for my $entry ( @{ $polyline_ref // [] } ) {
+		if ( $entry->[2] ) {
+			$seen{ $entry->[2] } //= 1;
+			$entry->[3] = $seen{ $entry->[2] };
+			$seen{ $entry->[2] } += 1;
+		}
+	}
+
+	$journey->{route_dep_index} = $route_start;
+	$journey->{route_arr_index} = $route_end;
+
+	my @route = @{$route_ref}[ $route_start .. $route_end ];
+
+	# Just like the route, the polyline may contain the same stop more than
+	# once. So we need to select based on the seen counter.
+	my $poly_start = first_index {
+		$_->[2] and $_->[2] == $from_eva and $_->[3] == $route[0][2]{n}
+	}
+	@{ $polyline_ref // [] };
+	my $poly_end = first_index {
+		$_->[2] and $_->[2] == $to_eva and $_->[3] == $route[-1][2]{n}
+	}
+	@{ $polyline_ref // [] };
+
+	if ( defined $poly_start and defined $poly_end ) {
+		$journey->{poly_dep_index} = $poly_start;
+		$journey->{poly_arr_index} = $poly_end;
+		my @polyline     = @{$polyline_ref}[ $poly_start .. $poly_end ];
 		my $prev_station = shift @polyline;
 		for my $station (@polyline) {
 			$distance_polyline += $geo->distance_metal(

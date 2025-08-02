@@ -370,8 +370,9 @@ sub homepage {
 			my $map_data = {};
 			if ( $status->{arr_name} ) {
 				$map_data = $self->journeys_to_map_data(
-					journeys        => [$status],
-					show_full_route => 1,
+					journeys         => [$status],
+					show_full_route  => 1,
+					with_now_markers => 1,
 				);
 			}
 			my $journey_visibility
@@ -461,8 +462,9 @@ sub status_card {
 		my $map_data = {};
 		if ( $status->{arr_name} ) {
 			$map_data = $self->journeys_to_map_data(
-				journeys        => [$status],
-				show_full_route => 1,
+				journeys         => [$status],
+				show_full_route  => 1,
+				with_now_markers => 1,
 			);
 		}
 		my $journey_visibility
@@ -2121,11 +2123,17 @@ sub journey_details {
 	$self->param( journey_id => $journey_id );
 
 	if ( not( $journey_id and $journey_id =~ m{ ^ \d+ $ }x ) ) {
-		$self->render(
-			'journey',
-			status  => 404,
-			error   => 'notfound',
-			journey => {}
+		$self->respond_to(
+			json => {
+				json   => { error => 'not found' },
+				status => 404
+			},
+			any => {
+				template => 'journey',
+				status   => 404,
+				error    => 'notfound',
+				journey  => {}
+			}
 		);
 		return;
 	}
@@ -2178,29 +2186,39 @@ sub journey_details {
 				$delay,           $journey->{rt_arrival}->strftime('%H:%M') );
 		}
 
-		$self->render(
-			'journey',
-			title => sprintf(
-				'travelynx: Fahrt %s %s %s am %s',
-				$journey->{type}, $journey->{line} // '',
-				$journey->{no},
-				$journey->{sched_departure}->strftime('%d.%m.%Y um %H:%M')
-			),
-			error              => undef,
-			journey            => $journey,
-			journey_visibility => $visibility,
-			with_map           => 1,
-			with_share         => $with_share,
-			share_text         => $share_text,
-			%{$map_data},
+		$self->respond_to(
+			json => { json => $journey },
+			any  => {
+				template => 'journey',
+				title    => sprintf(
+					'travelynx: Fahrt %s %s %s am %s',
+					$journey->{type},
+					$journey->{line} // '',
+					$journey->{no},
+					$journey->{sched_departure}->strftime('%d.%m.%Y um %H:%M')
+				),
+				error              => undef,
+				journey            => $journey,
+				journey_visibility => $visibility,
+				with_map           => 1,
+				with_share         => $with_share,
+				share_text         => $share_text,
+				%{$map_data},
+			}
 		);
 	}
 	else {
-		$self->render(
-			'journey',
-			status  => 404,
-			error   => 'notfound',
-			journey => {}
+		$self->respond_to(
+			json => {
+				json   => { error => 'not found' },
+				status => 404
+			},
+			any => {
+				template => 'journey',
+				status   => 404,
+				error    => 'notfound',
+				journey  => {}
+			}
 		);
 	}
 

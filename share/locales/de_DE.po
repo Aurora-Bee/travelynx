@@ -9,6 +9,9 @@ msgstr ""
 # Global Strings
 #
 
+msgid "strftime.datetime"
+msgstr "%d.%m.%Y %H:%M %Z"
+
 msgid "button.register"
 msgstr "Registrieren"
 
@@ -86,6 +89,36 @@ msgstr "Änderungen"
 
 # account.html.ep
 
+msgid "account.changed-name"
+msgstr "Name geändert"
+
+msgid "account.changed-mail"
+msgstr "Mail-Adresse geändert"
+
+msgid "account.changed-password"
+msgstr "Passwort geändert"
+
+msgid "account.changed-language"
+msgstr "Sprache geändert"
+
+msgid "account.changed-privacy"
+msgstr "Einstellungen zu öffentlichen Account-Daten geändert"
+
+msgid "account.changed-social"
+msgstr "Einstellungen zur Interaktionen mit anderen Accounts geändert"
+
+msgid "account.changed-traewelling"
+msgstr "Träwelling-Verknüpfung aktualisiert"
+
+msgid "account.changed-history"
+msgstr "Einstellungen zu vorgeschlagenen Verbindungen geändert"
+
+msgid "account.changed-webhook"
+msgstr "Web Hook aktualisiert"
+
+msgid "account.cleared-notifications"
+msgstr "Benachrichtigungen gelesen"
+
 msgid "account.account"
 msgstr "Account"
 
@@ -113,6 +146,27 @@ msgstr "Vorschläge deaktiviert"
 msgid "account.visibility"
 msgstr "Sichtbarkeit"
 
+msgid "account.webhook"
+msgstr "Webhook"
+
+msgid "account.webhook.disabled"
+msgstr "Nicht eingerichtet"
+
+msgid "account.webhook.active-pending"
+msgstr "Aktiv, noch nicht ausgeführt"
+
+msgid "account.webhook.active-error"
+msgstr "Aktiv, fehlerhaft"
+
+msgid "account.webhook.active"
+msgstr "Aktiv"
+
+msgid "account.traewelling.unsupported"
+msgstr "Wird wegen Inkompatibilität zwischen bahn.de und transitous derzeit nicht unterstützt"
+
+msgid "account.registration-date"
+msgstr "Registriert am"
+
 msgid "account.interaction"
 msgstr "Interaktion"
 
@@ -133,6 +187,20 @@ msgstr "offene Anfragen"
 
 msgid "account.interaction.disabled"
 msgstr "Accounts können dir nicht folgen"
+
+# changelog.html.ep
+
+msgid "changelog.added"
+msgstr "Neues Feature"
+
+msgid "changelog.bugfix"
+msgstr "Bugfix"
+
+msgid "changelog.2-16.1"
+msgstr "Infrastruktur zur Übersetzung von travelynx in andere Sprachen. Der Großteil der Website ist noch Deutsch; einzelne Seiten sind bereits auf Englisch und Teilmengen davon zusätzlich auf Französisch, Polnisch und Ungarisch verfügbar. Weitere Übersetzungen und ggf. Sprachen sowie Dokumentation zur Unterstützung dabei folgen bei Zeiten. Die Sprache wird auf Basis des Accept-Language-Headers ausgewählt und kann zusätzlich in den Account-Einstellungen konfiguriert werden."
+
+msgid "changelog.2-16.2"
+msgstr "Korrekte Berechnung und Visualisierung der Wegstrecke bei Fahrten mit Ringlinien. Die Anzeige der Fahrten in der Fahrtenkarte ist noch teilweise fehlerhaft."
 
 # journey.html.ep
 
@@ -195,6 +263,9 @@ msgstr "Route"
 
 msgid "journey.share"
 msgstr "Teilen"
+
+msgid "journey.export"
+msgstr "Exportieren"
 
 msgid "journey.edit"
 msgstr "Bearbeiten"
@@ -385,7 +456,7 @@ msgstr " "
 
 #, noun or verb
 msgid "status.departure-soon"
-msgstr "Abfahrt in weniger als einer Minute"
+msgstr "fährt ab"
 
 #, noun or verb
 msgid "status.arrival-in.pre"

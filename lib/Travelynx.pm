@@ -2477,6 +2477,7 @@ sub startup {
 					backend_id      => $latest->{backend_id},
 					backend_name    => $latest->{backend_name},
 					is_dbris        => $latest->{is_dbris},
+					is_efa          => $latest->{is_efa},
 					is_iris         => $latest->{is_iris},
 					is_hafas        => $latest->{is_hafas},
 					is_motis        => $latest->{is_motis},
@@ -2543,6 +2544,7 @@ sub startup {
 				backend => {
 					id => $status->{backend_id},
 					type => $status->{is_dbris} ? 'DBRIS'
+					: $status->{is_efa}   ? 'EFA'
 					: $status->{is_hafas} ? 'HAFAS'
 					: $status->{is_motis} ? 'MOTIS'
 					: 'IRIS-TTS',
@@ -2791,13 +2793,16 @@ sub startup {
 			my @extra_station_coordinates
 			  = map { [ $_->{latlon}, $_->{name} ] } @extra_stations;
 
-			my @now_coordinates = map {
-				[
-					$_->{now_latlon},
-					$_->{train_type} . ' '
-					  . ( $_->{train_line} // $_->{train_no} )
-				]
-			} @journeys;
+			my @now_coordinates;
+			if ( $opt{with_now_markers} ) {
+				@now_coordinates = map {
+					[
+						$_->{now_latlon},
+						$_->{train_type} . ' '
+						  . ( $_->{train_line} // $_->{train_no} )
+					]
+				} @journeys;
+			}
 
 			my @station_pairs;
 			my @polylines;
@@ -2824,10 +2829,14 @@ sub startup {
 				my $from_eva = $journey->{from_eva} // $journey->{dep_eva};
 				my $to_eva   = $journey->{to_eva}   // $journey->{arr_eva};
 
-				my $from_index
-				  = first_index { $_->[2] and $_->[2] == $from_eva } @polyline;
-				my $to_index
-				  = first_index { $_->[2] and $_->[2] == $to_eva } @polyline;
+				# poly_dep_index, poly_arr_index are only available for
+				# journeys that were processed by get_travel_distance
+				# beforehand. However, they are much less error-prone than this
+				# first_index / last_index kludge when it comes to ring lines.
+				my $from_index = $journey->{poly_dep_index}
+				  // first_index { $_->[2] and $_->[2] == $from_eva } @polyline;
+				my $to_index = $journey->{poly_arr_index}
+				  // first_index { $_->[2] and $_->[2] == $to_eva } @polyline;
 
 				# Work around inconsistencies caused by a multiple EVA IDs mapping to the same station name
 				if ( $from_index == -1 ) {
@@ -3116,10 +3125,17 @@ sub startup {
 			if ( $self->is_user_authenticated ) {
 				return 1;
 			}
-			$self->render(
-				'login',
-				redirect_to => $self->req->url,
-				from        => 'auth_required'
+			$self->respond_to(
+				json => {
+					json   => { error => 'authentication required' },
+					status => 401
+				},
+				any => {
+					template    => 'login',
+					status      => 401,
+					redirect_to => $self->req->url,
+					from        => 'auth_required'
+				}
 			);
 			return undef;
 		}
@@ -3155,7 +3171,9 @@ sub startup {
 	$authed_r->get('/journey/add')->to('traveling#add_journey_form');
 	$authed_r->get('/journey/comment')->to('traveling#comment_form');
 	$authed_r->get('/journey/visibility')->to('traveling#visibility_form');
-	$authed_r->get('/journey/:id')->to('traveling#journey_details');
+	$authed_r->get( '/journey/:id' => [ format => [ 'html', 'json' ] ] )
+	  ->to( 'traveling#journey_details', format => undef )
+	  ->name('journey');
 	$authed_r->get('/s/*station')->to('traveling#station');
 	$authed_r->get('/confirm_mail/:token')->to('account#confirm_mail');
 	$authed_r->post('/account/privacy')->to('account#privacy');
