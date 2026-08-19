@@ -3,7 +3,7 @@
 * de-DE: 100.0% complete (0 missing)
 * en-GB: 100.0% complete (0 missing)
 * fr-FR: 97.1% complete (9 missing)
-* hu-HU: 52.1% complete (123 missing)
+* hu-HU: 52.1% complete (104 missing)
 * pl-PL: 98.4% complete (5 missing)
 
 ### 
@@ -675,7 +675,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Kartendaten („Polylines“) zu einzelnen Fahrten können nun als GPX ex- und importiert werden. Somit können Kartendaten nachträglich korrigiert oder nachgepflegt werden. Das GPX-Datenformat ist mit BRouter-Web kompatibel.
 * en-GB: Map data (“polylines”) for individual trips can now be exported and imported in the GPX format. This allows map data to be corrected or augmented after the fact. The GPX import/export is compatible with BRouter-Web.
 * fr-FR: Les données de carte ("Polylines") des trajets individuels peuvent maintenant être exportées et importées au format GPX. Cela permet de corriger ou compléter les données de carte a posteriori. Les imports/exports GPX sont compatibles avec BRouter-Web.
-* hu-HU *missing*
+* hu-HU: Az egyes utak térképadatai („Polylines”) mostantól GPX formátumban exportálhatók és importálhatók. Ez lehetővé teszi a térképadatok utólagos javítását vagy kiegészítését. A GPX import/export kompatibilis a BRouter-Web programmal.
 * pl-PL: Dane mapy („Polylines”) dla pojedynczych przejazdów można teraz eksportować i importować jako pliki GPX. Dzięki temu dane mapy można później poprawić lub uzupełnić. Format danych GPX jest kompatybilny z BRouter-Web.
 
 ### changelog.2-18.1
@@ -707,7 +707,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: IRIS-Backend: Geringfügige Verbesserung der Verfügbarkeit von Kartendaten. Das Backend ist weiterhin abgekündigt und kann jederzeit entfallen.
 * en-GB: Minor life support adjustments for the legacy IRIS backend: map data should now be available in slightly more cases than before.
 * fr-FR: Ajustements mineurs de durée de vie pour le backend historique IRIS : les données de carte devraient être maintenant disponibles dans quelques cas supplémentaires par rapport à précédemment.
-* hu-HU: Enyhe vaítások a legacy IRIS backendhez: a térképadatok mostantól valamivel több esetben érhetőek el, mint korábban. Ez a backend deprecated lett és a jövőben akár törölve lehetne.
+* hu-HU: Enyhe javítások a legacy IRIS backendhez: a térképadatok mostantól valamivel több esetben érhetőek el, mint korábban. Ez a backend deprecated lett és a jövőben akár törölve lehetne.
 * pl-PL: Backend IRIS: Nieznaczna poprawa dostępności danych mapowych. Backend nadal jest wypowiedziany i może zostać wycofany w dowolnym momencie.
 
 ## history.html.ep
@@ -717,7 +717,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Nach Eigenschaft
 * en-GB: By Attribute
 * fr-FR: Par attribut
-* hu-HU *missing*
+* hu-HU: Attribútum szerint
 * pl-PL: Według kryteriów
 
 ## history_by_year.html.ep
@@ -727,7 +727,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Rückblick
 * en-GB: Review
 * fr-FR: Résumé
-* hu-HU *missing*
+* hu-HU: Évi áttekintés
 * pl-PL: Podsumowanie
 
 ## journey.html.ep
@@ -945,7 +945,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: JSON-Format: [[lon, lat, ID], ...] in WGS84-Koordinaten. GPX-Dateien sind mit BRouter kompatibel.
 * en-GB: JSON format: [[lon, lat, station ID], ...], with lon/lat in WGS84 coordinates. GPX files are compatible with BRouter.
 * fr-FR: Format JSON : [[lon, lat, station ID], ...], avec latitude/longitude en coordonnées WGS84. Les fichiers GPX files sont compatibles avec BRouter.
-* hu-HU *missing*
+* hu-HU: JSON formátum: [[lon, lat, station ID], ...], ahol lon/lat a WGS84 koordinátás hosszúsági/szélességi fokok. A GPX fájlok kompatibilisek a BRouterrel.
 * pl-PL: Format JSON: [[lon, lat, ID], ...] w współrzędnych WGS84. Pliki GPX są kompatybilne z BRouter.
 
 ### journey.map.info.upload
@@ -953,7 +953,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: GPX-Uploads müssen ein einzelnes track-Element mit einem einzelnen track segment enthalten. Ein BRouter-GPX-Export erfüllt diese Vorgaben. Uploads müssen entweder die komplette Route des Verkehrsmittels oder nur den zu diesem Checkin zugehörigen Abschnitt enthalten. Beim Hochladen bitte die passende Schaltfläche auswählen. IDs von Halten müssen beim Upload nicht angegeben werden. Bitte beachten: Beim Einspielen eigener Kartendaten werden die zuvor gespeicherten unwiderruflich gelöscht.
 * en-GB: GPX uploads must contain a single track with a single track segment (such as provided by BRouter's export). They must cover either the full route or just the travelled route segment that belongs to this checkin. Please use the appropriate upload button, otherwise chaos may ensue. There is no need to specify station IDs when uploading tracks. Note that uploads irreversibly replace previously stored map data.
 * fr-FR: Les téléversements GPX doivent contenir une seule trace avec un seul segment de trace (comme fourni par l'export BRouter). Ils doivent couvrir soit l'itinéraire entier, soit uniquement le segment du trajet qui correspond à l'enregistrement. Merci d'utiliser le bouton de téléversement approprié, sinon cela pourrait échouer. Il n'y a pas besoin de spécifier un ID de station lors de l'envoi des pistes. Il faut noter que les téléversements remplacent de manière irréversible les données de carte précédemment stockées.
-* hu-HU *missing*
+* hu-HU: A GPX feltöltéseknek egyetlen track-elemet kell tartalmazniuk egyetlen track szegmenssel. Egy BRouter GPX export megfelel ezeknek a követelményeknek. A feltöltéseknek tartalmazniuk kell vagy a közlekedési mód által megtett teljes útvonalat, vagy csak a check-innek megfelelő konkrét szakaszt. Feltöltéskor válaszd ki a megfelelő gombot. A station ID-t nem kell megadni a feltöltés során. Figyelem: Az egyéni térképadatok feltöltése visszavonhatatlanul törli az összes korábban tárolt térképadatokat!
 * pl-PL: Pliki GPX muszą zawierać jeden element track z jednym segmentem track. Eksport GPX z BRouter spełnia te wymagania. Przesyłane dane muszą zawierać całą trasę środka transportu lub tylko odcinek odpowiadający temu checkinowi. Przy przesyłaniu wybierz odpowiedni przycisk. ID przystanków nie muszą być podane. Uwaga: przesłanie własnych danych mapy bezpowrotnie usuwa wcześniej zapisane dane.
 
 ### journey.danger
@@ -961,7 +961,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Danger Zone
 * en-GB: Danger Zone
 * fr-FR: Zone de danger
-* hu-HU *missing*
+* hu-HU: Danger Zone
 * pl-PL: Danger Zone
 
 ### journey.delete
@@ -1003,7 +1003,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Letzte Ziele
 * en-GB: Latest destinations
 * fr-FR: Dernières destinations
-* hu-HU *missing*
+* hu-HU: Legutóbbi célok
 * pl-PL: Ostatnie cele podróży
 
 ### landingpage.stop-geosearch
@@ -1077,7 +1077,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Features:
 * en-GB: Features:
 * fr-FR: Fonctionnalités :
-* hu-HU *missing*
+* hu-HU: Fícsörök:
 * pl-PL: Funkcje:
 
 ### landingpage.features.log
@@ -1357,7 +1357,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: High Scores
 * en-GB: High Scores
 * fr-FR: Meilleurs Scores
-* hu-HU *missing*
+* hu-HU: High Score-ok
 * pl-PL: Najlepsze wyniki
 
 ### sorted-history.delay-dep
@@ -1365,7 +1365,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Verspätung bei Abfahrt
 * en-GB: Departure Delay
 * fr-FR: Retard au départ
-* hu-HU *missing*
+* hu-HU: Indulási késés
 * pl-PL: Opóźnienie odjazdu
 
 ### sorted-history.delay-arr
@@ -1373,7 +1373,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Verspätung bei Ankunft
 * en-GB: Arrival Delay
 * fr-FR: Retard à l'arrivée
-* hu-HU *missing*
+* hu-HU: Érkezési késés
 * pl-PL: Opóźnienie przy przyjeździe
 
 ### sorted-history.sched-duration
@@ -1381,7 +1381,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Geplante Dauer
 * en-GB: Scheduled Duration
 * fr-FR: Durée prévue
-* hu-HU *missing*
+* hu-HU: Tervezett időtartam
 * pl-PL: Planowany czas trwania
 
 ### sorted-history.rt-duration
@@ -1389,7 +1389,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Tatsächliche Dauer
 * en-GB: Actual Duration
 * fr-FR: Durée réelle
-* hu-HU *missing*
+* hu-HU: Tényleges időtartam
 * pl-PL: Rzeczywisty czas trwania
 
 ### sorted-history.desc
@@ -1397,7 +1397,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Absteigend
 * en-GB: Descending
 * fr-FR: Descendant
-* hu-HU *missing*
+* hu-HU: Csökkenő
 * pl-PL: Malejąco
 
 ### sorted-history.asc
@@ -1405,7 +1405,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Aufsteigend
 * en-GB: Ascending
 * fr-FR: Ascendant
-* hu-HU *missing*
+* hu-HU: Növekvő
 * pl-PL: Rosnąco
 
 ### sorted-history.submit
@@ -1413,7 +1413,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Anzeigen
 * en-GB: Show
 * fr-FR: Afficher
-* hu-HU *missing*
+* hu-HU: Megjelenítés
 * pl-PL: Wyświetl
 
 ### sorted-history.date
@@ -1421,7 +1421,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Datum
 * en-GB: Date
 * fr-FR: Date
-* hu-HU *missing*
+* hu-HU: Dátum
 * pl-PL: Data
 
 ### sorted-history.trip
@@ -1429,7 +1429,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Fahrt
 * en-GB: Trip
 * fr-FR: Voyage
-* hu-HU *missing*
+* hu-HU: Utazás
 * pl-PL: Podróż
 
 ### sorted-history.delay
@@ -1437,7 +1437,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Verspätung
 * en-GB: Delay
 * fr-FR: Retard
-* hu-HU *missing*
+* hu-HU: Késés
 * pl-PL: Opóźnienie
 
 ### sorted-history.duration
@@ -1445,7 +1445,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Dauer
 * en-GB: Duration
 * fr-FR: Durée
-* hu-HU *missing*
+* hu-HU: Időtartam
 * pl-PL: Czas
 
 ## year_in_review.html.ep
