@@ -46,6 +46,43 @@ msgid "header.error"
 msgstr "Hiba"
 
 #
+# LT (localized duration)
+#
+
+msgid "LT.weeks"
+msgstr "hét"
+
+msgid "LT.week"
+msgstr "hét"
+
+msgid "LT.days"
+msgstr "nap"
+
+msgid "LT.day"
+msgstr "nap"
+
+msgid "LT.hours"
+msgstr "óra"
+
+msgid "LT.hour"
+msgstr "óra"
+
+msgid "LT.minutes"
+msgstr "perc"
+
+msgid "LT.minute"
+msgstr "perc"
+
+msgid "LT.zero-minutes"
+msgstr "0 perc"
+
+msgid "LT.final-and"
+msgstr ", és"
+
+msgid "LT.and"
+msgstr " és"
+
+#
 # Templates
 #
 
@@ -188,6 +225,24 @@ msgstr "követési kérések"
 msgid "account.interaction.disabled"
 msgstr "Senki sem követhet"
 
+msgid "account.profile"
+msgstr "Nyílvános profiloldalad"
+
+msgid "account.interaction.requests"
+msgstr "Követési kérések"
+
+msgid "account.interaction.requests.incoming.none"
+msgstr "nincs beérkező kérés"
+
+msgid "account.interaction.requests.incoming.some"
+msgstr "beérkező kérés"
+
+msgid "account.interaction.requests.outgoing.none"
+msgstr "nincs kimenő kérés"
+
+msgid "account.interaction.requests.outgoing.some"
+msgstr "kimenő kérés"
+
 # changelog.html.ep
 
 msgid "changelog.added"
@@ -201,6 +256,55 @@ msgstr "Lokalizáció. A travelynx most már angolul, részben pedig franciául,
 
 msgid "changelog.2-16.2"
 msgstr "A távolságszámítás és a gyűrűsvonali utazások megjelenítése javítva lett. Az előzménytérképen megjelenített utazások még mindig részben hibásak."
+
+msgid "changelog.2-17.1"
+msgstr "Az egyes utak térképadatai („Polylines”) mostantól GPX formátumban exportálhatók és importálhatók. Ez lehetővé teszi a térképadatok utólagos javítását vagy kiegészítését. A GPX import/export kompatibilis a BRouter-Web programmal."
+
+msgid "changelog.2-18.1"
+msgstr "A becsekellés és az átszállási javaslatok ismét működnek a DBRIS, EFA és IRIS backendeknél. A HAFAS backendből hiányoznak a szükséges indulásjelző adatok. Előfordulhat, hogy a MOTIS backendekből is hiányoznak a szükséges adatok."
+
+msgid "changelog.2-18.2"
+msgstr "Az előzményekben a teljes távolság kiszámításánál most már azokat az utakat is vesz figyelembe, amelyekhez nem állnak rendelkezésre megfelelő útvonaladatok (azaz ahol csak légvonalban mért távolság / légvonalban mért távolság áll rendelkezésre). A mostani verzió előtt az ilyen utakat ki lettek hagyva a havi és éves statisztikák kiszámításakor."
+
+msgid "changelog.2-19.1"
+msgstr "Korábbi utazások rendezése késés vagy időtartam szerint. További attribútumok is követhetik."
+
+msgid "changelog.2-19.2"
+msgstr "Enyhe vaítások a legacy IRIS backendhez: a térképadatok mostantól valamivel több esetben érhetőek el, mint korábban. Ez a backend deprecated lett és a jövőben akár törölve lehetne."
+
+msgid "changelog.2-20.1"
+msgstr "“Join in” button: checkins of followees and other accounts can now be transformed into a checkin with identical data for your own account. This is only possible if your account is not already checked in."
+
+msgid "changelog.2-20.2"
+msgstr "Improved handling of backend-specific blocks and rate limits. Nevertheless, until further notice, dbris / bahn.de are only fully usable on small instances (no more than 10 concurrent checkins)."
+
+msgid "changelog.2-20.3"
+msgstr "The IRIS backend has been restored with almost all features. In many cases, it now is a viable alternative to bahn.de, at least until the end of 2026."
+
+msgid "changelog.2-21.1"
+msgstr "Statistics on past journeys are now computed immediately rather than being deferred until the corresponding detail view has been opened. History pages now load much faster."
+
+msgid "changelog.2-21.2"
+msgstr "If you are running your own instance, you'll need to run 'perl index.pl stats compute-distances -m production' and 'perl index.pl stats purge-cache -m production' after the upgrade. compute-distances may take a while; it can run in the background while the travelynx web service and workers are operating normally."
+
+msgid "changelog.2-22.1"
+msgstr "Users can now migrate past trips across travelynx instances. Note that this requires admin rights (CLI access) on the target instance."
+
+msgid "changelog.2-22.2"
+msgstr "DBRIS / bahn.de: departure board: support DS100 / Ril100 station codes (patch by networkException)."
+
+msgid "changelog.2-22.3"
+msgstr "The DBRIS / bahn.de backend is fully usable again (for now)."
+
+# history.html.ep
+
+msgid "history.high-scores"
+msgstr "By Attribute"
+
+# history_by_year.html.ep
+
+msgid "history.review"
+msgstr "Review"
 
 # journey.html.ep
 
@@ -269,6 +373,30 @@ msgstr "Exportálás"
 
 msgid "journey.edit"
 msgstr "Szerkesztés"
+
+msgid "journey.map-data"
+msgstr "Térképadatok"
+
+msgid "journey.map.download"
+msgstr "Letöltés"
+
+msgid "journey.map.upload"
+msgstr "Feltöltés"
+
+msgid "journey.map.upload-full"
+msgstr "Teljes útvonal feltöltése"
+
+msgid "journey.map.upload-partial"
+msgstr "Útvonal szegmens feltöltése"
+
+msgid "journey.map.info.download"
+msgstr "JSON format: [[lon, lat, station ID], ...], with lon/lat in WGS84 coordinates. GPX files are compatible with BRouter."
+
+msgid "journey.map.info.upload"
+msgstr "GPX uploads must contain a single track with a single track segment (such as provided by BRouter's export). They must cover either the full route or just the travelled route segment that belongs to this checkin. Please use the appropriate upload button, otherwise chaos may ensue. There is no need to specify station IDs when uploading tracks. Note that uploads irreversibly replace previously stored map data."
+
+msgid "journey.danger"
+msgstr "Danger Zone"
 
 msgid "journey.delete"
 msgstr "Törlés"

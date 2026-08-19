@@ -3,7 +3,7 @@
 * de-DE: 100.0% complete (0 missing)
 * en-GB: 100.0% complete (0 missing)
 * fr-FR: 97.1% complete (9 missing)
-* hu-HU: 52.1% complete (150 missing)
+* hu-HU: 52.1% complete (123 missing)
 * pl-PL: 98.4% complete (5 missing)
 
 ### 
@@ -139,7 +139,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Wochen
 * en-GB: weeks
 * fr-FR: semaines
-* hu-HU *missing*
+* hu-HU: hét
 * pl-PL: tygodni
 
 ### LT.week
@@ -147,7 +147,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Woche
 * en-GB: week
 * fr-FR: semaine
-* hu-HU *missing*
+* hu-HU: hét
 * pl-PL: tydzień
 
 ### LT.days
@@ -155,7 +155,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Tage
 * en-GB: days
 * fr-FR: jours
-* hu-HU *missing*
+* hu-HU: nap
 * pl-PL: dni
 
 ### LT.day
@@ -163,7 +163,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Tag
 * en-GB: day
 * fr-FR: jour
-* hu-HU *missing*
+* hu-HU: nap
 * pl-PL: dzień
 
 ### LT.hours
@@ -171,7 +171,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Stunden
 * en-GB: hours
 * fr-FR: heures
-* hu-HU *missing*
+* hu-HU: óra
 * pl-PL: godzin
 
 ### LT.hour
@@ -179,7 +179,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Stunde
 * en-GB: hour
 * fr-FR: heure
-* hu-HU *missing*
+* hu-HU: óra
 * pl-PL: godzina
 
 ### LT.minutes
@@ -187,7 +187,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Minuten
 * en-GB: minutes
 * fr-FR: minutes
-* hu-HU *missing*
+* hu-HU: perc
 * pl-PL: minut
 
 ### LT.minute
@@ -195,7 +195,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Minute
 * en-GB: minute
 * fr-FR: minute
-* hu-HU *missing*
+* hu-HU: perc
 * pl-PL: minuta
 
 ### LT.zero-minutes
@@ -203,7 +203,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: 0 Minuten
 * en-GB: 0 minutes
 * fr-FR: 0 minutes
-* hu-HU *missing*
+* hu-HU: 0 perc
 * pl-PL: 0 minut
 
 ### LT.final-and
@@ -211,7 +211,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE:  und
 * en-GB: , and
 * fr-FR: , et
-* hu-HU *missing*
+* hu-HU: , és
 * pl-PL:  i
 
 ### LT.and
@@ -219,7 +219,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE:  und
 * en-GB:  and
 * fr-FR:  et
-* hu-HU *missing*
+* hu-HU: és
 * pl-PL:  i
 
 ## Templates
@@ -593,7 +593,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Öffentliches Profil
 * en-GB: Public profile page
 * fr-FR: Page de profil publique
-* hu-HU *missing*
+* hu-HU: Nyílvános profiloldalad
 * pl-PL: Profil publiczny
 
 ### account.interaction.requests
@@ -601,7 +601,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Offene anfragen
 * en-GB: Pending requests
 * fr-FR: requêtes en attente
-* hu-HU *missing*
+* hu-HU: Követési kérések
 * pl-PL: Otwarte zapytania
 
 ### account.interaction.requests.incoming.none
@@ -609,7 +609,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: keine eingehend
 * en-GB: none incoming
 * fr-FR: aucune entrante
-* hu-HU *missing*
+* hu-HU: nincs beérkező kérés
 * pl-PL: brak przychodzących
 
 ### account.interaction.requests.incoming.some
@@ -617,7 +617,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: eingehend
 * en-GB: incoming
 * fr-FR: entrantes
-* hu-HU *missing*
+* hu-HU: beérkező kérés
 * pl-PL: przychodzące
 
 ### account.interaction.requests.outgoing.none
@@ -625,7 +625,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: keine ausgehend
 * en-GB: none outgoing
 * fr-FR: aucune sortante
-* hu-HU *missing*
+* hu-HU: nincs kimenő kérés
 * pl-PL: brak wychodzących
 
 ### account.interaction.requests.outgoing.some
@@ -633,7 +633,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: ausgehend
 * en-GB: outgoing
 * fr-FR: sortantes
-* hu-HU *missing*
+* hu-HU: kimenő kérés
 * pl-PL: wychodzące
 
 ## changelog.html.ep
@@ -683,7 +683,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Checkin- und Verbindungsvorschläge sind für DBRIS-, EFA- und IRIS-Backends wieder verfügbar. Bei HAFAS-Backends fehlen die dazu notwendigen Daten in der Abfahrtstafel. Bei MOTIS-Backends fehlen die Daten möglicherweise ebenfalls.
 * en-GB: Checkin and connection suggestions are now available again for DBRIS, EFA, and IRIS backends. HAFAS backends lack the required station board data. MOTIS backends may lack the required data as well.
 * fr-FR: L'enregistrement et les suggestions de correspondances sont maintenant disponibles à nouveau pour les backends DBRIS, EFA et IRIS. Les backends HAFAS n'ont pas les données de tableau de station requises. Les backends MOTIS backends peuvent également ne pas avoir ces données.
-* hu-HU *missing*
+* hu-HU: A becsekellés és az átszállási javaslatok ismét működnek a DBRIS, EFA és IRIS backendeknél. A HAFAS backendből hiányoznak a szükséges indulásjelző adatok. Előfordulhat, hogy a MOTIS backendekből is hiányoznak a szükséges adatok.
 * pl-PL: Propozycje check-inów i połączen są znów dostępne dla backendów DBRIS, EFA i IRIS. W przypadku backendów HAFAS brakuje potrzebnych danych w tabeli odjazdów. W przypadku backendów MOTIS dane też mogą być niedostępne.
 
 ### changelog.2-18.2
@@ -691,7 +691,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Bei der Reisestreckenberechnung für vergangene Fahrten werden nun auch Fahrten mit ungenügender Datenlage (d.h. bei denen ausschließlich die Entfernung nach Luftlinie verfügbar ist) berücksichtigt. Bislang wurden diese für monatliche und jährliche Statistiken ignoriert.
 * en-GB: Total distance calculation in the history now includes trips that lack appropriate route data (i.e., where only beeline distance / distance as the crow flies is available). Before this release, such trips were ignored when computing monthly and yearly statistics.
 * fr-FR: Le calcul de la distance totale dans l'historique inclut maintenant les voyages qui n'ont pas les données de trajet appropriées (par exemple où seule la distance à vol d'oiseau est disponible). Avant cette version, de tels trajets étaient ignorés lors du calcul des statistiques mensuelles et annuelles
-* hu-HU *missing*
+* hu-HU: Az előzményekben a teljes távolság kiszámításánál most már azokat az utakat is vesz figyelembe, amelyekhez nem állnak rendelkezésre megfelelő útvonaladatok (azaz ahol csak légvonalban mért távolság / légvonalban mért távolság áll rendelkezésre). A mostani verzió előtt az ilyen utakat ki lettek hagyva a havi és éves statisztikák kiszámításakor.
 * pl-PL: Przy obliczaniu tras podróży dla przejazdów z przeszłości uwzględniane są teraz również przejazdy z niewystarczającymi danymi (czyli te, dla których dostępna jest wyłącznie odległość w linii prostej). Do tej pory były one pomijane w statystykach miesięcznych i rocznych.
 
 ### changelog.2-19.1
@@ -699,7 +699,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Sortierung vergangener Fahrten nach Verspätung oder Dauer. Weitere Attribute folgen ggf.
 * en-GB: High score of all past checkins sorted by delay or duration. More attributes may follow.
 * fr-FR: Meilleurs scores de tous les enregistrements passés triés par retard ou durée. Plus d'attributs pourraient suivre.
-* hu-HU *missing*
+* hu-HU: Korábbi utazások rendezése késés vagy időtartam szerint. További attribútumok is követhetik.
 * pl-PL: Sortowanie poprzednich przejazdów według opóźnienia lub czasu trwania. W razie możliwości dodane zostaną kolejne atrybuty.
 
 ### changelog.2-19.2
@@ -707,7 +707,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: IRIS-Backend: Geringfügige Verbesserung der Verfügbarkeit von Kartendaten. Das Backend ist weiterhin abgekündigt und kann jederzeit entfallen.
 * en-GB: Minor life support adjustments for the legacy IRIS backend: map data should now be available in slightly more cases than before.
 * fr-FR: Ajustements mineurs de durée de vie pour le backend historique IRIS : les données de carte devraient être maintenant disponibles dans quelques cas supplémentaires par rapport à précédemment.
-* hu-HU *missing*
+* hu-HU: Enyhe vaítások a legacy IRIS backendhez: a térképadatok mostantól valamivel több esetben érhetőek el, mint korábban. Ez a backend deprecated lett és a jövőben akár törölve lehetne.
 * pl-PL: Backend IRIS: Nieznaczna poprawa dostępności danych mapowych. Backend nadal jest wypowiedziany i może zostać wycofany w dowolnym momencie.
 
 ## history.html.ep
@@ -905,7 +905,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Kartendaten
 * en-GB: Map Data
 * fr-FR: Données de carte
-* hu-HU *missing*
+* hu-HU: Térképadatok
 * pl-PL: Dane mapy
 
 ### journey.map.download
@@ -913,7 +913,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Herunterladen
 * en-GB: Download
 * fr-FR: Télécharger
-* hu-HU *missing*
+* hu-HU: Letöltés
 * pl-PL: Pobierz
 
 ### journey.map.upload
@@ -921,7 +921,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Hochladen
 * en-GB: Upload
 * fr-FR: Téléverser
-* hu-HU *missing*
+* hu-HU: Feltöltés
 * pl-PL: Prześlij
 
 ### journey.map.upload-full
@@ -929,7 +929,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Komplette Route
 * en-GB: Upload full route
 * fr-FR: Téléverser tout l'itinéraire
-* hu-HU *missing*
+* hu-HU: Teljes útvonal feltöltése
 * pl-PL: Cała trasa
 
 ### journey.map.upload-partial
@@ -937,7 +937,7 @@ Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 && (n<10 || n>=20) ? 1
 * de-DE: Gefahrenes Segment
 * en-GB: Upload travelled segment
 * fr-FR: Téléverser une partie de l'itinéraire
-* hu-HU *missing*
+* hu-HU: Útvonal szegmens feltöltése
 * pl-PL: Przejechany odcinek
 
 ### journey.map.info.download
